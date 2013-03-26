@@ -65,8 +65,6 @@ public class TestRadio {
 							kapi.volumeMinus();
 						} else if ("m".equals(cmd)) {
 							kapi.volumeMute();
-						} else {
-							System.out.println("You fucking queer");
 						}
 					}
 				}
