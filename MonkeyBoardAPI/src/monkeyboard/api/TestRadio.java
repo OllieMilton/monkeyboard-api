@@ -2,7 +2,7 @@ package monkeyboard.api;
 
 import java.util.Scanner;
 
-public class Radio {
+public class TestRadio {
 
 	private static class LineReader extends Thread {
 		String line;
