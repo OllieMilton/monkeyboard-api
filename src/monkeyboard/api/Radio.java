@@ -24,7 +24,6 @@ public class Radio {
 				instance.buildStationMap();
 			}
 		}
-	
 		return instance;
 	}
 	
@@ -60,4 +59,22 @@ public class Radio {
 	public void volumeMinus() {
 		api.volumeMinus();
 	}
+	
+	public String station() {
+		return api.getProgramName(mode, currentDabIndex, false);
+	}
+	
+	public String programText() {
+		return api.getProgramText();
+	}
+	
+	public PlayStatus playStatus() {
+		return api.getPlayStatus();
+	}
+	
+	public byte signalStrength() {
+		return api.getSignalStrength();
+	}
+
 }
+
