@@ -6,11 +6,12 @@ public class TestRadio {
 
 	private static class LineReader extends Thread {
 		String line;
-
+		boolean terminated = false;
 		public void run() {
 			Scanner scanner = new Scanner(System.in);
-			while (true) 
+			while (!terminated) 
 				setLine(scanner.next());
+			scanner.close();
 		}
 
 		synchronized String getLine() {
