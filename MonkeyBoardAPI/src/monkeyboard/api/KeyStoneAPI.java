@@ -202,7 +202,7 @@ public class KeyStoneAPI {
 		} else if (bstate == LibKeyStoneAPI.RECONFIGURING) {
 			return PlayStatus.RECONFIGURING;
 		} else {
-			System.out.println("Doggey status - "+bstate);
+			System.out.println("Dodgy status - "+bstate);
 		}
 		return null;
 	}
