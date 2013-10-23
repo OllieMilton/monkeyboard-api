@@ -226,6 +226,7 @@ public class KeyStoneAPI {
 	public byte getSignalStrength() {
 		return api.GetSignalStrength(new IntByReference());
 	}
+	
 	public byte getProgramType(RadioMode mode, long dabIndex) {
 		byte bmode = LibKeyStoneAPI.STREAM_MODE_DAB;
 		if (mode == RadioMode.FM) {
@@ -261,16 +262,30 @@ public class KeyStoneAPI {
 		}
 		return api.SetStereoMode(mode);
 	}
+	
+	public boolean dabAutoSearch(byte startindex, byte endindex) {
+		return api.DABAutoSearch(startindex, endindex);
+	}
+	
+	public boolean clearDatabase() {
+		return api.ClearDatabase();
+	}
+	
+	public boolean setPreset(RadioMode mode, byte presetindex, long channel) {
+		byte bmode = LibKeyStoneAPI.STREAM_MODE_DAB;
+		if (mode == RadioMode.FM) {
+			bmode = LibKeyStoneAPI.STREAM_MODE_FM;
+		}
+		return api.SetPreset(bmode, presetindex, channel);
+	}
+	
 	/*
 	long GetPreset(byte mode, byte presetindex);
-	boolean SetPreset(byte mode, byte presetindex, long channel);
-	boolean DABAutoSearch(byte startindex, byte endindex);
 	boolean GetEnsembleName(long dabIndex, byte namemode, Pointer programName);
 	int GetDataRate();
 	byte GetFrequency();
 	byte GetStereoMode();
 	byte GetStereo();
-	boolean ClearDatabase();
 	*/
 
 }
