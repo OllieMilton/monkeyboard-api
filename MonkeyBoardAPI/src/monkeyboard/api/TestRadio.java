@@ -29,7 +29,7 @@ public class TestRadio {
 		KeyStoneAPI kapi = new KeyStoneAPI();
 		System.out.println("Fuck off");
 		byte volume = 15;
-		if (kapi.findAndOpen()) {
+		if (kapi.findAndOpen(true)) {
 			System.out.println("Port open");
 			int totalPro = (int)kapi.getTotalPrograms();
 			int dabProg = 0;

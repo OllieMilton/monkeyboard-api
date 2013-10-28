@@ -121,12 +121,12 @@ public class KeyStoneAPI {
 		api = (LibKeyStoneAPI) Native.loadLibrary("keystonecomm", LibKeyStoneAPI.class);
 	}
 	
-	public boolean findAndOpen() {
+	public boolean findAndOpen(boolean hardMute) {
 		String serial = "/dev/ttyACM";
 		int i = 0;
 		boolean open = false;
 		do {
-			open = openRadioPort(serial+(i++));
+			open = openRadioPort(serial+(i++), hardMute);
 		} while (!open && i < 16);
 		return open;
 	}
@@ -136,8 +136,8 @@ public class KeyStoneAPI {
 	 * @param portName - the name of the serial port.
 	 * @return True if succesfull.
 	 */
-	public boolean openRadioPort(String portName) {
-		return api.OpenRadioPort(portName, true);
+	public boolean openRadioPort(String portName, boolean hardMute) {
+		return api.OpenRadioPort(portName, hardMute);
 	}
 
 	public boolean closeRadioPort() {
