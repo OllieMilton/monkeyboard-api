@@ -189,6 +189,9 @@ public class KeyStoneAPI {
 	
 	public PlayStatus getPlayStatus() {
 		byte bstate = api.GetPlayStatus();
+		while (bstate == -1) {
+			bstate = api.GetPlayStatus();
+		}
 		if (bstate == LibKeyStoneAPI.PLAYING) {
 			return PlayStatus.PLAYING;
 		} else if (bstate == LibKeyStoneAPI.SEARCHING) {
@@ -204,6 +207,7 @@ public class KeyStoneAPI {
 		} else {
 			System.out.println("Dodgy status - "+bstate);
 		}
+		System.out.println("Fuck flaps status - "+bstate);
 		return null;
 	}
 	
