@@ -1,0 +1,10 @@
+<ivy-module version="2.0">
+    <info organisation="monkeyboard.api" module="monkeyboard"/>
+    <configurations>
+    	<conf name="compile" visibility="public"/>
+    	<conf name="master" visibility="public"/>
+    </configurations>
+    <dependencies>
+        <dependency org="net.java.dev.jna" name="jna" rev="4.1.0" conf="compile -> master"/>
+    </dependencies>
+</ivy-module>
