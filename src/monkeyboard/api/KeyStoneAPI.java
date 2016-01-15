@@ -241,7 +241,7 @@ public class KeyStoneAPI {
 	
 	public String getProgramText() {
 		if (api.GetProgramText(RDSString) == 0) {
-			return RDSString.getString(0, true);
+			return RDSString.getWideString(0);
 		}
 		return null;
 	}
@@ -254,7 +254,7 @@ public class KeyStoneAPI {
 		byte namemode = abrev ? LibKeyStoneAPI.NAME_MODE_ABRV : LibKeyStoneAPI.NAME_MODE_FULL;
 		Pointer p = new Memory(1024);
 		if (api.GetProgramName(bmode, dabIndex, namemode, p)) {
-			return p.getString(0, true);
+			return p.getWideString(0);
 		}
 		return null;
 	}
